@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page import="com.hundsun.fund.mobile.security.*" %>
+<%@ page import="com.meadidea.mobile.security.*" %>
 <%@ page errorPage="error.jsp"%>
 
 <%
@@ -18,7 +18,7 @@
 	String keyPublic = RSAKeyUtil.getPEMkey(rsa.getPublicKey());
 	String keyPrivate = RSAKeyUtil.getPEMkey(rsa.getPrivateKey());
 	//保存私钥
-	request.getSession().setAttribute(RSAIssueService.SESSION_SECURITY_PRIVATE_KEY, rsa.getPrivateKey());
+	request.getSession().setAttribute(RSAKeyUtil.SESSION_SECURITY_PRIVATE_KEY, rsa.getPrivateKey());
 	//输出公钥
 	out.println(keyPublic);
 	System.out.println("keyPrivate="+keyPrivate);
